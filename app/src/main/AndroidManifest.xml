@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vs00481543.phonecallrecorder">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/phone_launcher"
@@ -22,26 +28,20 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-        
-        <service android:name=".RecorderService"/>
-        
+
+        <service android:name=".RecorderService" />
+
         <provider
-            android:authorities="com.example.vs00481543.phonecallrecorder"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.vs00481543.phonecallrecorder"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-
+                android:resource="@xml/provider_paths" />
         </provider>
-        
+
+        <activity android:name=".TestActivity"></activity>
     </application>
-    
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
 </manifest>
